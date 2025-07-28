@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Niña Hermosa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(101, 67, 33, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #8B7355 0%, #A0826D 25%, #D2B48C 50%, #F5DEB3 75%, #FFF8DC 100%);
+            background-attachment: fixed;
+            font-family: 'Dancing Script', cursive;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Nubes de fondo */
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(245, 222, 179, 0.4);
+            border-radius: 50px;
+            opacity: 0.7;
+            animation: drift 20s infinite linear;
+        }
+
+        .cloud:before,
+        .cloud:after {
+            content: '';
+            position: absolute;
+            background: rgba(245, 222, 179, 0.3);
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 20%;
+            left: -100px;
+            animation-duration: 25s;
+        }
+
+        .cloud1:before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1:after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 30px;
+            top: 40%;
+            left: -80px;
+            animation-duration: 30s;
+            animation-delay: -10s;
+        }
+
+        .cloud2:before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud2:after {
+            width: 50px;
+            height: 30px;
+            top: -10px;
+            right: 15px;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(100vw + 100px));
+            }
+        }
+
+        /* Contenedor principal */
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Papel pergamino */
+        .letter-container {
+            position: relative;
+            max-width: 850px;
+            width: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.15) 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, rgba(160, 82, 45, 0.12) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(101, 67, 33, 0.08) 2px, transparent 2px),
+                linear-gradient(45deg, #F5DEB3 0%, #F4F1E8 25%, #FFF8DC 50%, #F7F4E9 75%, #FAF0E6 100%);
+            background-size: 80px 80px, 120px 120px, 60px 60px, 100% 100%;
+            border: 4px solid #8B4513;
+            border-radius: 20px;
+            padding: 70px 50px;
+            box-shadow: 
+                0 25px 50px rgba(139, 69, 19, 0.4),
+                inset 0 0 30px rgba(139, 69, 19, 0.1),
+                0 0 0 2px rgba(160, 82, 45, 0.3),
+                0 0 0 6px rgba(222, 184, 135, 0.2);
+            transform: rotate(-0.8deg);
+            animation: vintage-float 8s ease-in-out infinite;
+            position: relative;
+        }
+
+        .letter-container:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(139, 69, 19, 0.1) 10px,
+                    rgba(139, 69, 19, 0.1) 12px
+                );
+            border-radius: 25px;
+            z-index: -1;
+        }
+
+        .letter-container:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px dashed rgba(139, 69, 19, 0.3);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        @keyframes vintage-float {
+            0%, 100% { transform: rotate(-0.8deg) translateY(0px) scale(1); }
+            25% { transform: rotate(-0.6deg) translateY(-3px) scale(1.002); }
+            50% { transform: rotate(-0.8deg) translateY(-8px) scale(1.005); }
+            75% { transform: rotate(-1deg) translateY(-3px) scale(1.002); }
+        }
+
+        /* Rosas decorativas mejoradas */
+        .rose {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: 
+                radial-gradient(circle at 30% 30%, #FF69B4 0%, #DC143C 50%, #8B0000 100%);
+            border-radius: 50% 80% 50% 80%;
+            transform: rotate(45deg);
+            box-shadow: 
+                0 0 20px rgba(220, 20, 60, 0.6),
+                inset 0 0 10px rgba(255, 105, 180, 0.3);
+            animation: rose-bloom 6s ease-in-out infinite;
+        }
+
+        .rose:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: 
+                radial-gradient(circle at 40% 40%, #FFB6C1 0%, #FF1493 40%, #DC143C 100%);
+            border-radius: 50% 70% 50% 70%;
+            top: 15px;
+            left: 15px;
+            transform: rotate(-25deg);
+            box-shadow: inset 0 0 8px rgba(255, 20, 147, 0.4);
+        }
+
+        .rose:after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: 
+                radial-gradient(circle, #FFC0CB 0%, #FF69B4 70%, #FF1493 100%);
+            border-radius: 50%;
+            top: 27px;
+            left: 27px;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+        }
+
+        @keyframes rose-bloom {
+            0%, 100% { 
+                transform: rotate(45deg) scale(1);
+                filter: brightness(1);
+            }
+            25% { 
+                transform: rotate(48deg) scale(1.08);
+                filter: brightness(1.1);
+            }
+            50% { 
+                transform: rotate(45deg) scale(1.15);
+                filter: brightness(1.2);
+            }
+            75% { 
+                transform: rotate(42deg) scale(1.08);
+                filter: brightness(1.1);
+            }
+        }
+
+        .rose-top-left {
+            top: -40px;
+            left: -40px;
+            animation-delay: 0s;
+        }
+
+        .rose-top-right {
+            top: -40px;
+            right: -40px;
+            animation-delay: 1s;
+        }
+
+        .rose-bottom-left {
+            bottom: -40px;
+            left: -40px;
+            animation-delay: 2s;
+        }
+
+        .rose-bottom-right {
+            bottom: -40px;
+            right: -40px;
+            animation-delay: 3s;
+        }
+
+        /* Rosas adicionales en los laterales */
+        .rose-middle-left {
+            top: 30%;
+            left: -40px;
+            transform: rotate(45deg) scale(0.8);
+            animation-delay: 4s;
+        }
+
+        .rose-middle-right {
+            top: 30%;
+            right: -40px;
+            transform: rotate(45deg) scale(0.8);
+            animation-delay: 5s;
+        }
+
+        .rose-lower-left {
+            top: 70%;
+            left: -40px;
+            transform: rotate(45deg) scale(0.7);
+            animation-delay: 1.5s;
+        }
+
+        .rose-lower-right {
+            top: 70%;
+            right: -40px;
+            transform: rotate(45deg) scale(0.7);
+            animation-delay: 2.5s;
+        }
+
+        /* Lycoris radiata */
+        .lycoris {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lycoris-petal {
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(to top, #8b0000, #ff4500, #ff6347);
+            border-radius: 2px 2px 50% 50%;
+            transform-origin: bottom center;
+            animation: petal-dance 3s ease-in-out infinite;
+        }
+
+        .lycoris-petal:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }
+        .lycoris-petal:nth-child(2) { transform: rotate(45deg); animation-delay: 0.2s; }
+        .lycoris-petal:nth-child(3) { transform: rotate(90deg); animation-delay: 0.4s; }
+        .lycoris-petal:nth-child(4) { transform: rotate(135deg); animation-delay: 0.6s; }
+        .lycoris-petal:nth-child(5) { transform: rotate(180deg); animation-delay: 0.8s; }
+        .lycoris-petal:nth-child(6) { transform: rotate(225deg); animation-delay: 1s; }
+        .lycoris-petal:nth-child(7) { transform: rotate(270deg); animation-delay: 1.2s; }
+        .lycoris-petal:nth-child(8) { transform: rotate(315deg); animation-delay: 1.4s; }
+
+        @keyframes petal-dance {
+            0%, 100% { transform: rotate(var(--rotation, 0deg)) scaleY(1); }
+            50% { transform: rotate(var(--rotation, 0deg)) scaleY(1.1); }
+        }
+
+        .lycoris-left {
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+        }
+
+        .lycoris-right {
+            top: 50%;
+            right: -40px;
+            transform: translateY(-50%);
+        }
+
+        /* Contenido de la carta */
+        .letter-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .letter-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 
+                3px 3px 6px rgba(139, 69, 19, 0.3),
+                0 0 15px rgba(160, 82, 45, 0.2),
+                0 0 30px rgba(218, 165, 32, 0.1);
+            animation: vintage-glow 4s ease-in-out infinite alternate;
+            position: relative;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .letter-title:before {
+            content: '❦';
+            position: absolute;
+            left: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #DC143C;
+            animation: ornament-pulse 3s ease-in-out infinite;
+            font-family: serif;
+        }
+
+        .letter-title:after {
+            content: '❦';
+            position: absolute;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            font-size: 2.5rem;
+            color: #DC143C;
+            animation: ornament-pulse 3s ease-in-out infinite 1.5s;
+            font-family: serif;
+        }
+
+        @keyframes vintage-glow {
+            from { 
+                text-shadow: 
+                    3px 3px 6px rgba(139, 69, 19, 0.3),
+                    0 0 15px rgba(160, 82, 45, 0.2),
+                    0 0 30px rgba(218, 165, 32, 0.1);
+            }
+            to { 
+                text-shadow: 
+                    3px 3px 10px rgba(139, 69, 19, 0.5),
+                    0 0 20px rgba(160, 82, 45, 0.4),
+                    0 0 40px rgba(218, 165, 32, 0.3);
+            }
+        }
+
+        @keyframes ornament-pulse {
+            0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.1); }
+        }
+
+        .letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            line-height: 2.2;
+            color: #654321;
+            text-align: justify;
+            text-indent: 50px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(139, 69, 19, 0.15);
+            position: relative;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        .letter-text:first-of-type:first-letter {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5.5rem;
+            float: left;
+            line-height: 0.7;
+            margin: 15px 12px 0 0;
+            color: #8B4513;
+            text-shadow: 
+                3px 3px 6px rgba(139, 69, 19, 0.4),
+                0 0 10px rgba(160, 82, 45, 0.3);
+            font-weight: 400;
+        }
+
+        .letter-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #8B4513;
+            text-align: right;
+            margin-top: 60px;
+            font-weight: 400;
+            text-shadow: 
+                2px 2px 4px rgba(139, 69, 19, 0.3),
+                0 0 8px rgba(160, 82, 45, 0.2);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .letter-signature:before {
+            content: '⟨';
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3.5rem;
+            color: #DC143C;
+            font-family: serif;
+        }
+
+        .letter-signature:after {
+            content: '⟩';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3.5rem;
+            color: #DC143C;
+            font-family: serif;
+        }
+
+        /* Audio oculto */
+        .hidden-audio {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+        }
+
+        /* Control de música vintage */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: 
+                radial-gradient(circle, #8B4513 0%, #654321 70%);
+            color: #F5DEB3;
+            border: 3px solid #DAB885;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 6px 20px rgba(139, 69, 19, 0.4),
+                inset 0 0 10px rgba(245, 222, 179, 0.2);
+        }
+
+        .music-control:hover {
+            background: 
+                radial-gradient(circle, #A0522D 0%, #8B4513 70%);
+            transform: scale(1.15);
+            box-shadow: 
+                0 8px 25px rgba(139, 69, 19, 0.6),
+                inset 0 0 15px rgba(245, 222, 179, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter-container {
+                padding: 40px 25px;
+                margin: 10px;
+            }
+
+            .letter-title {
+                font-size: 3rem;
+                margin-bottom: 30px;
+            }
+
+            .letter-title:before,
+            .letter-title:after {
+                font-size: 1.8rem;
+                left: -40px;
+                right: -40px;
+            }
+
+            .letter-text {
+                font-size: 1.5rem;
+                line-height: 2;
+                text-indent: 35px;
+                margin-bottom: 25px;
+            }
+
+            .letter-signature {
+                font-size: 2.5rem;
+            }
+
+            .letter-signature:before,
+            .letter-signature:after {
+                font-size: 2.5rem;
+            }
+
+            .letter-signature:before {
+                left: -30px;
+            }
+
+            .letter-signature:after {
+                right: -30px;
+            }
+
+            .rose {
+                width: 40px;
+                height: 40px;
+            }
+
+            .rose:before {
+                width: 25px;
+                height: 25px;
+                top: 7px;
+                left: 7px;
+            }
+
+            .rose:after {
+                width: 12px;
+                height: 12px;
+                top: 14px;
+                left: 14px;
+            }
+
+            .lycoris {
+                width: 60px;
+                height: 60px;
+            }
+
+            .lycoris-petal {
+                width: 3px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .letter-container {
+                padding: 30px 20px;
+            }
+
+            .letter-title {
+                font-size: 2.2rem;
+            }
+
+            .letter-title:before,
+            .letter-title:after {
+                display: none;
+            }
+
+            .letter-text {
+                font-size: 1.3rem;
+                text-indent: 20px;
+            }
+
+            .letter-signature {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nubes animadas -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+    </div>
+
+    <!-- Audio -->
+    <audio class="hidden-audio" id="backgroundMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav">
+        <!-- Nota: Deberás reemplazar esta URL con el enlace real de la canción "LATIN MAFIA - FLORES" -->
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Control de música -->
+    <button class="music-control" id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+    <div class="container">
+        <div class="letter-container">
+            <!-- Rosas decorativas principales -->
+            <div class="rose rose-top-left"></div>
+            <div class="rose rose-top-right"></div>
+            <div class="rose rose-bottom-left"></div>
+            <div class="rose rose-bottom-right"></div>
+            
+            <!-- Rosas adicionales para más romanticismo -->
+            <div class="rose rose-middle-left"></div>
+            <div class="rose rose-middle-right"></div>
+            <div class="rose rose-lower-left"></div>
+            <div class="rose rose-lower-right"></div>
+
+            <!-- Lycoris radiata -->
+            <div class="lycoris lycoris-left">
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+            </div>
+            <div class="lycoris lycoris-right">
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+                <div class="lycoris-petal"></div>
+            </div>
+
+            <!-- Contenido de la carta -->
+            <div class="letter-content">
+                <h1 class="letter-title">Para ti, mi niña hermosa</h1>
+                
+                <p class="letter-text">
+                    Quería tener un detalle contigo, así que decidí escribirte esta carta. Como ingeniero, quise plasmar algunas palabras de una manera especial, creando esta página web con todo el cariño del mundo. Espero que te guste, porque está hecha pensando en ti, con todo mi corazón.
+                </p>
+
+                <p class="letter-text">
+                    Desde que te conocí, no he dejado de admirarte. En tan poco tiempo me he dado cuenta de lo fuerte que eres, de la mujer tan maravillosa que tengo frente a mí. Eres inteligente, juiciosa, hermosa en todos los aspectos. Tu rostro tiene una armonía preciosa, tu físico es increíble, y tu personalidad... simplemente me cautiva. Tienes una mentalidad hermosa y una energía que me llena de paz cada vez hablo contigo.
+                </p>
+
+                <p class="letter-text">
+                    Amo tu compañía, mi princesa. La forma en que puedes hacerme olvidar de todo con solo unos minutos de conversación es mágica. Me siento orgulloso de ti por todo lo que eres y por todo lo que has logrado. Admiro profundamente tu capacidad para seguir adelante, incluso en los días difíciles, con esa sonrisa hermosa que siempre llevas puesta.
+                </p>
+
+                <p class="letter-text">
+                    Admiro la forma en que enfrentas tus luchas internas, esas voces en tu mente que a veces te hacen dudar, pero que tú aprendes a callar poco a poco con tu fuerza y tu luz. Estoy y estaré siempre orgulloso de cada paso que des en tu vida, esté o no esté a tu lado. Para mí, ya eres y serás una gran auxiliar de vuelo, corazón. Lo sé con certeza.
+                </p>
+
+                <p class="letter-text">
+                    Me alegra tanto haber coincidido contigo en este mundo tan grande. Me siento afortunado de tenerte en mi vida. Te aprecio muchísimo, más de lo que te imaginas. Gracias por llegar a mi vida y, sobre todo, por quedarte.
+                </p>
+
+                <p class="letter-text">
+                    Sé que esta carta es breve, y que aún me quedan muchas cosas por decirte, pero quise dejar aquí unas palabras por ti y para ti. Espero que te llegue al corazón.
+                </p>
+
+                <div class="letter-signature">
+                    Te quiero mucho, mi Aleja hermosa ❤️
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        const audio = document.getElementById('backgroundMusic');
+        const musicToggle = document.getElementById('musicToggle');
+
+        // Intentar reproducir automáticamente al cargar
+        window.addEventListener('load', function() {
+            // Los navegadores modernos requieren interacción del usuario para reproducir audio
+            // Se intentará reproducir, pero es posible que sea bloqueado
+            audio.play().catch(function(error) {
+                console.log('Reproducción automática bloqueada:', error);
+                musicToggle.textContent = '🔇';
+            });
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicToggle.textContent = '🔇';
+                isPlaying = false;
+            } else {
+                audio.play().then(() => {
+                    musicToggle.textContent = '🎵';
+                    isPlaying = true;
+                }).catch(error => {
+                    console.log('Error al reproducir:', error);
+                    alert('Para escuchar la música, necesitas hacer clic en el botón de reproducir debido a las políticas del navegador.');
+                });
+            }
+        }
+
+        // Actualizar el estado del botón según el audio
+        audio.addEventListener('play', () => {
+            isPlaying = true;
+            musicToggle.textContent = '🎵';
+        });
+
+        audio.addEventListener('pause', () => {
+            isPlaying = false;
+            musicToggle.textContent = '🔇';
+        });
+
+        // Añadir efectos de pétalos de rosa cayendo
+        function createRosePetal() {
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌹';
+            petal.style.position = 'fixed';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = Math.random() * 4 + 3 + 's';
+            petal.style.opacity = Math.random() * 0.7 + 0.3;
+            petal.style.fontSize = Math.random() * 15 + 15 + 'px';
+            petal.style.zIndex = '1';
+            petal.style.pointerEvents = 'none';
+            petal.style.animation = 'petalFall ' + (Math.random() * 4 + 3) + 's linear infinite';
+            petal.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+            
+            document.body.appendChild(petal);
+            
+            setTimeout(() => {
+                petal.remove();
+            }, 7000);
+        }
+
+        // Crear pétalos de rosa cada 4 segundos
+        setInterval(createRosePetal, 4000);
+
+        // CSS mejorado para animaciones
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% {
+                    transform: translateY(-100vh) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes petalFall {
+                0% {
+                    transform: translateY(-100vh) rotate(0deg) scale(1);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: translateY(50vh) rotate(180deg) scale(1.2);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg) scale(0.8);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
